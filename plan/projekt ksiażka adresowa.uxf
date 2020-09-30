@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>392</x>
+      <y>504</y>
+      <w>231</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>KsiazkaAdresowa
+--
+- UzytkownikMenedzer : uzytkownikMenedzer
+- AdresatMenedzer : adresatMenedzer
+--
+KsiazkaAdresowa()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>91</x>
+      <y>35</y>
+      <w>189</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Uzytkownik
+--
+- id: Integer
+- login: String
+- haslo: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>28</x>
+      <y>140</y>
+      <w>364</w>
+      <h>196</h>
+    </coordinates>
+    <panel_attributes>UzytkownikMenedzer
+--
+- idZalogowanegoUzytkownika: Integer
+- uzytkownicy: vector &lt;Uzytkownik&gt;
+--
++ rejestracjaUzytkownika (): void
++ logowanieUzytkownika (): Integer
++ wypiszWszystkichUzytkownikow(): void
++ wczytajUzytkownikowZPliku(): void
++ zmianaHaslaZalogowanegoUzytkownika(): void
++ wylogowanieUzytkownika(): void
+- podajDaneNowegoUzytkownika(): Uzytkownik
+- pobierzIdNowegoUzytkownika(): Integer
+- czyIstniejeLogin(): Bool
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>70</x>
+      <y>385</y>
+      <w>175</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>PlikZUzytkownikami
+--
+- nazwaPlikuZUzytkownikami: String
+-  plikTekstowy: fstream
+--
++ PlikZUzytkownikami()
++ dopiszUzytkownikaDoPliku(): void
++ wczytajUzytkownikowZPliku(): vector&lt;Uzytkownik&gt;
++ zapiszWszystkichUzytkownikowDoPliku(vector &lt;Uzytkownik&gt; &amp;uzytkownicy): void
+- czyPlikJestPusty(): Bool
+- zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(): String
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>427</x>
+      <y>21</y>
+      <w>168</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>MetodyPomocnicze
+--
+--
++ konwerjsaIntNaString(): String
++ wczytajLinie(): String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>756</x>
+      <y>7</y>
+      <w>126</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>Adresat
+--
+- id: Integer
+- idUzytkownika: Integer
+- imie: String
+- nazwisko: String
+- nrTelefonu: String
+- email: String
+- adres: String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>679</x>
+      <y>126</y>
+      <w>280</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>AdresatMenedzer
+--
+- idZalogowanegoUzytkownika: Integer
+- idOstatniegoAdresata: Integer
+- adresaci: vector&lt;Adresat&gt;
+--
++ podajDaneNowegoAdresata(): Adresat
++ dodajAdresata(): void
++ wyswietlWszystkichAdresatow(): void
++ wyswietlDaneAdresata(): void
++ ustawIdZalogowanegoUzytkownika(int noweIdZalogowanegoUzytkownika): void
++ wczytajAdresatowZPliku(int idZalogowanegoUzytkownika) : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>665</x>
+      <y>364</y>
+      <w>252</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>PlikZAdresatami
+--
+- nazwaPlikuZUzytkownikami: String
+-  plikTekstowy: fstream
+- idOstatniegoAdresata : Integer
+--
+- zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(Adresat adresat): String
++ dopiszAdresataDoPliku(Adresat adresat): void
++ pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami):Adresat 
++ czyPlikJestPusty(fstream &amp;plikTekstowy) : bool 
++ wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika): vector&lt;Adresat&gt; 
++ pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): int 
++ pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami) : int 
++ pobierzLiczbe(string tekst, int pozycjaZnaku): string 
++ pobierzIdOstatniegoAdresata():int
++ wczytajIdOstatniegoAdresata(int Id):void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
