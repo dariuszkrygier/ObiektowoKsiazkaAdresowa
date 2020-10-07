@@ -1,12 +1,7 @@
 #include "AdresatMenedzer.h"
 #include "MetodyPomocnicze.h"
-#include "UzytkownikMenedzer.h"
 
 
-AdresatMenedzer :: AdresatMenedzer()
-{
-     adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
-}
 void AdresatMenedzer :: dodajAdresata()
 {
     Adresat adresat;
@@ -20,14 +15,13 @@ void AdresatMenedzer :: dodajAdresata()
 
 }
 
-
 Adresat AdresatMenedzer :: podajDaneNowegoAdresata()
 {
     Adresat adresat;
-
-    adresat.ustawId (plikZAdresatami.pobierzIdOstatniegoAdresata()+1);
-    adresat.ustawIdUzytkownika (idZalogowanegoUzytkownika);
-    plikZAdresatami.wczytajIdOstatniegoAdresata(adresat.wczytajId());
+    adresat.ustawId((plikZAdresatami.pobierzIdOstatniegoAdresata()+1));
+    //cout<<idOstatniegoAdresata;
+    //system("pause");
+    adresat.ustawIdUzytkownika (ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
     adresat.ustawImie (MetodyPomocnicze :: wczytajLinie());
@@ -47,6 +41,11 @@ Adresat AdresatMenedzer :: podajDaneNowegoAdresata()
     adresat.ustawAdres (MetodyPomocnicze :: wczytajLinie());
 
     return adresat;
+}
+
+void AdresatMenedzer :: wczytajAdresatowZPliku(int idZalogowanegoUzytkownika)
+{
+    adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
 }
 
 void AdresatMenedzer :: wyswietlWszystkichAdresatow()
@@ -77,14 +76,4 @@ void AdresatMenedzer :: wyswietlDaneAdresata(Adresat adresat)
     cout << "Numer telefonu:     " << adresat.wczytajNumerTelefonu() << endl;
     cout << "Email:              " << adresat.wczytajEmail() << endl;
     cout << "Adres:              " << adresat.wczytajAdres() << endl;
-}
-
-void AdresatMenedzer :: ustawIdZalogowanegoUzytkownika(int noweIdZalogowanegoUzytkownika )
-{
-    idZalogowanegoUzytkownika = noweIdZalogowanegoUzytkownika;
-}
-
-void AdresatMenedzer::wczytajAdresatowZPliku(int idZalogowanegoUzytkownika)
-{
-    adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
 }

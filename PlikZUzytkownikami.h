@@ -4,7 +4,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include <cstdlib>
+
 
 #include "Uzytkownik.h"
 #include "MetodyPomocnicze.h"
@@ -13,7 +13,7 @@ using namespace std;
 
 class PlikZUzytkownikami
 {
-    const string nazwaPlikuZUzytkownikami;
+    const string NAZWA_PLIKU_Z_UZYTKOWNIKAMI;
     //fstream plikTekstowy;
 
     bool czyPlikJestPusty();
@@ -22,10 +22,10 @@ class PlikZUzytkownikami
 
 
 public:
-    PlikZUzytkownikami (string NAZWAPLIKUZUZYTKOWNIKAMI) : nazwaPlikuZUzytkownikami (NAZWAPLIKUZUZYTKOWNIKAMI) {};
+    PlikZUzytkownikami(string nazwaPlikuZUzytkownikami) : NAZWA_PLIKU_Z_UZYTKOWNIKAMI (nazwaPlikuZUzytkownikami) {};
     vector <Uzytkownik> wczytajUzytkownikowZPliku();
-    void dopiszUzytkownikaDoPliku (Uzytkownik uzytkownik);
-    void zapiszWszystkichUzytkownikowDoPliku (vector <Uzytkownik> &uzytkownicy);
+    void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
+    void zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> &uzytkownicy);
 };
 
 #endif

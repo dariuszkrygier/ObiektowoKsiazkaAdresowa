@@ -4,17 +4,26 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>392</x>
-      <y>504</y>
+      <x>371</x>
+      <y>420</y>
       <w>231</w>
-      <h>91</h>
+      <h>161</h>
     </coordinates>
     <panel_attributes>KsiazkaAdresowa
 --
 - UzytkownikMenedzer : uzytkownikMenedzer
-- AdresatMenedzer : adresatMenedzer
+- AdresatMenedzer : *adresatMenedzer
 --
-KsiazkaAdresowa()
++ KsiazkaAdresowa()
++ rejestracjaUzytkownika():void
++ wypiszWszystkichUzytkownikow(): void
++ logowanieUzytkownika(): void
++ zmianaHaslaZalogowanegoUzytkownika():void
++ wylogowanieUzytkownika():
++ dodajAdresata(): void
++ pobierzIdZalogowanegoUzytkownika(): int
++ wczytajAdresatowZPliku(): void
++ wyswietlWszystkichAdresatow():void
 
 </panel_attributes>
     <additional_attributes/>
@@ -56,6 +65,7 @@ KsiazkaAdresowa()
 - podajDaneNowegoUzytkownika(): Uzytkownik
 - pobierzIdNowegoUzytkownika(): Integer
 - czyIstniejeLogin(): Bool
++ czyUzytkownikJestZalogowany():bool
 
 
 
@@ -132,15 +142,13 @@ KsiazkaAdresowa()
     </coordinates>
     <panel_attributes>AdresatMenedzer
 --
-- idZalogowanegoUzytkownika: Integer
-- idOstatniegoAdresata: Integer
-- adresaci: vector&lt;Adresat&gt;
+- ID_ZALOGOWANEGO_UZYTKOWNIKA:const int
+- adresaci:vector &lt;Adresat&gt; 
 --
 + podajDaneNowegoAdresata(): Adresat
 + dodajAdresata(): void
 + wyswietlWszystkichAdresatow(): void
 + wyswietlDaneAdresata(): void
-+ ustawIdZalogowanegoUzytkownika(int noweIdZalogowanegoUzytkownika): void
 + wczytajAdresatowZPliku(int idZalogowanegoUzytkownika) : void</panel_attributes>
     <additional_attributes/>
   </element>
@@ -154,20 +162,18 @@ KsiazkaAdresowa()
     </coordinates>
     <panel_attributes>PlikZAdresatami
 --
-- nazwaPlikuZUzytkownikami: String
--  plikTekstowy: fstream
+- NAZWA_PLIKU_Z_ADRESATAMI: const String
+- zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat):String
 - idOstatniegoAdresata : Integer
 --
-- zamienDaneAdresataNaLinieZDanymiOddzielonaPionowymiKreskami(Adresat adresat): String
 + dopiszAdresataDoPliku(Adresat adresat): void
-+ pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami):Adresat 
-+ czyPlikJestPusty(fstream &amp;plikTekstowy) : bool 
-+ wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika): vector&lt;Adresat&gt; 
-+ pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): int 
-+ pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami) : int 
-+ pobierzLiczbe(string tekst, int pozycjaZnaku): string 
++ czyPlikJestPusty(fstream &amp;plikTekstowy): bool
++ wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika):vector &lt;Adresat&gt;
++ pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): int
++ pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami):int
++ pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami): Adresat
++ pobierzLiczbe(string tekst, int pozycjaZnaku): string
 + pobierzIdOstatniegoAdresata():int
-+ wczytajIdOstatniegoAdresata(int Id):void
 
 </panel_attributes>
     <additional_attributes/>

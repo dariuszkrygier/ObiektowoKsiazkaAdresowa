@@ -5,22 +5,19 @@ using namespace std;
 
 int main()
 {
-
-    KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy.txt");
-
-    //ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-    //ksiazkaAdresowa.logowanieUzytkownika();
-    //ksiazkaAdresowa.dodajAdresata();
-    //ksiazkaAdresowa.dodajAdresata();
-    //ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
-    //ksiazkaAdresowa.wylogowanieUzytkownika();
-    ksiazkaAdresowa.logowanieUzytkownika();
-   ksiazkaAdresowa.wczytajAdresatowZPliku();
-    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
-
-
-   // ksiazkaAdresowa.rejestracjaUzytkownika();
+    KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy.txt", "Adresaci.txt");
+    ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+    //ksiazkaAdresowa.rejestracjaUzytkownika();
     //ksiazkaAdresowa.rejestracjaUzytkownika();
     //ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+    ksiazkaAdresowa.logowanieUzytkownika();
+    //ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+    //ksiazkaAdresowa.wylogowanieUzytkownika();
+    ksiazkaAdresowa.dodajAdresata();
+    //ksiazkaAdresowa.dodajAdresata();
+    //ksiazkaAdresowa.dodajAdresata();
+    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+    ksiazkaAdresowa.wylogowanieUzytkownika();
+
     return 0;
 }

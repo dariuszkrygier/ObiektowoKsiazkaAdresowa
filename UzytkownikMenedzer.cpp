@@ -1,6 +1,5 @@
 #include "UzytkownikMenedzer.h"
 
-
 void UzytkownikMenedzer :: rejestracjaUzytkownika()
 {
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
@@ -70,11 +69,6 @@ void UzytkownikMenedzer :: wypiszWszystkichUzytkownikow()
     }
 }
 
-void UzytkownikMenedzer :: wczytajUzytkownikowZPliku()
-{
-    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
-}
-
 int UzytkownikMenedzer :: logowanieUzytkownika()
 {
     Uzytkownik uzytkownik;
@@ -103,13 +97,13 @@ int UzytkownikMenedzer :: logowanieUzytkownika()
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
             system("pause");
-
+            return 0;
         }
         itr++;
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
-
+    return 0;
 }
 
 void UzytkownikMenedzer :: zmianaHaslaZalogowanegoUzytkownika()
@@ -118,12 +112,11 @@ void UzytkownikMenedzer :: zmianaHaslaZalogowanegoUzytkownika()
     cout << "Podaj nowe haslo: ";
     noweHaslo = MetodyPomocnicze :: wczytajLinie();
 
-
     for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
     {
         if (itr -> pobierzId() == idZalogowanegoUzytkownika)
         {
-            itr -> ustawHaslo(noweHaslo) ;
+            itr -> ustawHaslo(noweHaslo);
             cout << "Haslo zostalo zmienione." << endl << endl;
             system("pause");
         }
@@ -131,7 +124,7 @@ void UzytkownikMenedzer :: zmianaHaslaZalogowanegoUzytkownika()
     plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
 
-void UzytkownikMenedzer::wylogowanieUzytkownika()
+void UzytkownikMenedzer :: wylogowanieUzytkownika()
 {
     if (idZalogowanegoUzytkownika==0)
         cout<<"Nikt nie jest zalogowany"<<endl;
@@ -145,7 +138,6 @@ void UzytkownikMenedzer::wylogowanieUzytkownika()
         }
         cout<<"Uzytkownik: "<<itr->pobierzLogin()<<", wylogowany."<<endl;
         idZalogowanegoUzytkownika=0;
-        cout << idZalogowanegoUzytkownika;
     }
 }
 
@@ -154,3 +146,11 @@ int UzytkownikMenedzer :: pobierzIdZalogowanegoUzytkownika()
     return idZalogowanegoUzytkownika;
 }
 
+bool UzytkownikMenedzer :: czyUzytkownikJestZalogowany()
+{
+    if (idZalogowanegoUzytkownika>0)
+        return true;
+    else {
+        return false;
+    }
+}

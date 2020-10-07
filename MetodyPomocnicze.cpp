@@ -1,7 +1,5 @@
 #include "MetodyPomocnicze.h"
-#include <iostream>
 #include <sstream>
-#include <algorithm>
 
 string MetodyPomocnicze :: konwerjsaIntNaString(int liczba)
 {
@@ -36,4 +34,3 @@ int MetodyPomocnicze :: konwersjaStringNaInt(string liczba)
 
     return liczbaInt;
 }
-

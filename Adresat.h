@@ -1,5 +1,6 @@
 #ifndef ADRESAT_H
 #define ADRESAT_H
+#include <string>
 #include <iostream>
 
 using namespace std;
@@ -14,10 +15,9 @@ class Adresat
     string email;
     string adres;
 
-
 public:
-    void ustawId(int noweId);
     void ustawIdUzytkownika(int noweIdUzytkownika);
+    void ustawId(int noweId);
     void ustawImie(string noweImie);
     void ustawNazwisko(string noweNazwisko);
     void ustawNumerTelefonu(string nowyNumerTelefonu);
@@ -33,3 +33,5 @@ public:
 };
 
 #endif
+
+

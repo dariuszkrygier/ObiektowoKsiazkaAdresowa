@@ -1,6 +1,9 @@
 #ifndef METODYPOMOCNICZE_H
 #define METODYPOMOCNICZE_H
 #include <iostream>
+#include <sstream>
+#include <fstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -11,6 +14,7 @@ public:
     static string wczytajLinie();
     static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     static int konwersjaStringNaInt(string liczba);
+
 };
 
 #endif
