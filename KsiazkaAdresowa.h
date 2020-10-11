@@ -33,5 +33,6 @@ public:
     int pobierzIdZalogowanegoUzytkownika();
     void wczytajAdresatowZPliku();
     void wyswietlWszystkichAdresatow();
+    void usunAdresata();
 
 };

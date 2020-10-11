@@ -13,11 +13,13 @@ int main()
     ksiazkaAdresowa.logowanieUzytkownika();
     //ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
     //ksiazkaAdresowa.wylogowanieUzytkownika();
-    ksiazkaAdresowa.dodajAdresata();
+    //ksiazkaAdresowa.dodajAdresata();
     //ksiazkaAdresowa.dodajAdresata();
     //ksiazkaAdresowa.dodajAdresata();
     ksiazkaAdresowa.wyswietlWszystkichAdresatow();
-    ksiazkaAdresowa.wylogowanieUzytkownika();
+    ksiazkaAdresowa.usunAdresata();
+    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+    //ksiazkaAdresowa.wylogowanieUzytkownika();
 
     return 0;
 }

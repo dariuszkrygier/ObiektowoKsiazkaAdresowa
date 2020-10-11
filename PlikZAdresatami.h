@@ -27,6 +27,7 @@ public:
   Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
   string pobierzLiczbe(string tekst, int pozycjaZnaku);
   int pobierzIdOstatniegoAdresata();
+  void usunAdresataZPliku(int idAdresata);
 
 };
 

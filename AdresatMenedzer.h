@@ -23,6 +23,8 @@ public:
     void wczytajAdresatowZPliku(int idZalogowanegoUzytkownika);
     void wyswietlWszystkichAdresatow();
     void wyswietlDaneAdresata(Adresat adresat);
+    int usunAdresata();
+    int podajIdWybranegoAdresata();
 
 };
 

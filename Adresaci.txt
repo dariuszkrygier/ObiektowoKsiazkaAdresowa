@@ -1,7 +1,6 @@
 1|1|D|1|1|1|1|
 2|1|B|2|2|2|2|
 3|1|Z|3|3|3|3|
-4|1|Kkk|K|k|k|k|
-5|1|Llol|Lol||||
 6|2|Hjkjhk|Khjkhj|hjkhjk|hjkhjk|hjk|
 7|2|Jhkhjk|Hjk|hjhjk||jh|
+8|1|D|D|d|d|d|
