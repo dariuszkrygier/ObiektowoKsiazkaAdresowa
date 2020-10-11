@@ -22,7 +22,15 @@ class UzytkownikMenedzer
 
 
 public:
+<<<<<<< Updated upstream
     UzytkownikMenedzer (string nazwaPlikuZUzytkownikami) : plikZUzytkownikami (nazwaPlikuZUzytkownikami) {};
+=======
+    UzytkownikMenedzer (string nazwaPlikuZUzytkownikami) : plikZUzytkownikami (nazwaPlikuZUzytkownikami) {
+    idZalogowanegoUzytkownika=0;
+    uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
+    };
+    //UzytkownikMenedzer (string nazwaPlikuZUzytkownikami);
+>>>>>>> Stashed changes
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wczytajUzytkownikowZPliku();

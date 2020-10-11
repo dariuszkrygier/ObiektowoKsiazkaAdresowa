@@ -25,6 +25,11 @@ public:
     void wyswietlWszystkichAdresatow();
     int pobierzIdZalogowanegoUzytkownika();
     void wczytajAdresatowZPliku();
+<<<<<<< Updated upstream
 
+=======
+    void wyswietlWszystkichAdresatow();
+    void usunAdresata();
+>>>>>>> Stashed changes
 
 };

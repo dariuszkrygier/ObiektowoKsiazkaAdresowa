@@ -12,8 +12,16 @@ void KsiazkaAdresowa :: wypiszWszystkichUzytkownikow()
 
 void KsiazkaAdresowa :: logowanieUzytkownika()
 {
+<<<<<<< Updated upstream
 
     adresatMenedzer.ustawIdZalogowanegoUzytkownika(uzytkownikMenedzer.logowanieUzytkownika());
+=======
+    uzytkownikMenedzer.logowanieUzytkownika();
+    if(uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+    adresatMenedzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+    }
+>>>>>>> Stashed changes
 
 }
 
@@ -46,3 +54,8 @@ void KsiazkaAdresowa::wczytajAdresatowZPliku()
 {
     adresatMenedzer.wczytajAdresatowZPliku(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
 }
+void KsiazkaAdresowa :: usunAdresata()
+{
+    adresatMenedzer -> usunAdresata();
+}
+

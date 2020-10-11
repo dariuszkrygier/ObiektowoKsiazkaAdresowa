@@ -2,6 +2,10 @@
 2|1|B|2|2|2|2|
 3|1|Z|3|3|3|3|
 4|1|Kkk|K|k|k|k|
-5|1|Llol|Lol||||
 6|2|Hjkjhk|Khjkhj|hjkhjk|hjkhjk|hjk|
 7|2|Jhkhjk|Hjk|hjhjk||jh|
+9|2|K|K|k|k|k|
+10|3|K|K|k|k|k|
+11|6|Pp|P|p|p|p|
+12|2|R|R|r|r|r|
+13|8|D|D|d|d|d|

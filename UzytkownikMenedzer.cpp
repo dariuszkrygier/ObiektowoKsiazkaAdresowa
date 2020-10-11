@@ -1,5 +1,13 @@
 #include "UzytkownikMenedzer.h"
 
+<<<<<<< Updated upstream
+=======
+/*UzytkownikMenedzer::UzytkownikMenedzer(string nazwaPlikuZUzytkownikami):plikZUzytkownikami(nazwaPlikuZUzytkownikami)
+{
+    uzytkownicy=plikZUzytkownikami.wczytajUzytkownikowZPliku();
+    idZalogowanegoUzytkownika=0;
+}*/
+>>>>>>> Stashed changes
 
 void UzytkownikMenedzer :: rejestracjaUzytkownika()
 {
@@ -98,17 +106,26 @@ int UzytkownikMenedzer :: logowanieUzytkownika()
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
                     idZalogowanegoUzytkownika = itr -> pobierzId();
-                    return idZalogowanegoUzytkownika;
+                    //break;
+                   return idZalogowanegoUzytkownika;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
             system("pause");
+<<<<<<< Updated upstream
+=======
+            return 0;
+>>>>>>> Stashed changes
 
         }
         itr++;
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
+<<<<<<< Updated upstream
+=======
+   return 0;
+>>>>>>> Stashed changes
 
 }
 

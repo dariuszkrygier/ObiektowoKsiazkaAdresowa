@@ -22,8 +22,13 @@ class AdresatMenedzer
     Adresat podajDaneNowegoAdresata();
     void wyswietlWszystkichAdresatow();
     void wyswietlDaneAdresata(Adresat adresat);
+<<<<<<< Updated upstream
     void ustawIdZalogowanegoUzytkownika(int noweIdZalogowanegoUzytkownika);
     void wczytajAdresatowZPliku(int idZalogowanegoUzytkownika);
+=======
+    int usunAdresata();
+    int podajIdWybranegoAdresata();
+>>>>>>> Stashed changes
 
 };
 
