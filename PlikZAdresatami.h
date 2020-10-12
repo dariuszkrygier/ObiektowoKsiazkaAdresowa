@@ -6,10 +6,11 @@
 #include "MetodyPomocnicze.h"
 #include <cstdlib>
 #include "Adresat.h"
+#include "PlikTekstowy.h"
 
 
 
-class PlikZAdresatami
+class PlikZAdresatami : public PlikTekstowy
 {
     const string NAZWA_PLIKU_Z_ADRESATAMI;
     int idOstatniegoAdresata;
@@ -20,7 +21,7 @@ public:
       idOstatniegoAdresata=0;
   };
   void dopiszAdresataDoPliku(Adresat adresat);
-  bool czyPlikJestPusty(fstream &plikTekstowy);
+  //bool czyPlikJestPusty(fstream &plikTekstowy);
   vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
   int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
   int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
