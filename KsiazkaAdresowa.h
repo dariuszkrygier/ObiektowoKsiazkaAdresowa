@@ -34,5 +34,5 @@ public:
     void wczytajAdresatowZPliku();
     void wyswietlWszystkichAdresatow();
     void usunAdresata();
-
+    void edytujAdresata();
 };

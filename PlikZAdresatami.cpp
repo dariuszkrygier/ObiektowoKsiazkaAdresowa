@@ -203,6 +203,50 @@ void PlikZAdresatami::usunAdresataZPliku(int idAdresata)
     }
 }
 
+void PlikZAdresatami :: edytujAdresataWPliku(Adresat adresat)
+{
+    bool czyIstniejeAdresat = false;
+    int numerLiniiWPlikuTekstowym = 1;
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+    fstream plikTekstowy,tymczasowyPlikTekstowy;
+    string nazwaTymczasowegoPlikuZAdresatami="tymczasowy.txt";
+
+
+    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    tymczasowyPlikTekstowy.open(nazwaTymczasowegoPlikuZAdresatami.c_str(), ios::out | ios::app);
+
+    if (plikTekstowy.good() == true && adresat.wczytajId() != 0)
+    {
+        while(getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
+        {
+            if(adresat.wczytajId() == pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami)&&numerLiniiWPlikuTekstowym==1)
+            {
+                czyIstniejeAdresat = true;
+                tymczasowyPlikTekstowy << zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+            }
+            else if(adresat.wczytajId() == pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami)&&numerLiniiWPlikuTekstowym>1)
+            {
+                czyIstniejeAdresat = true;
+                tymczasowyPlikTekstowy <<endl<< zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
+            }
+            else if(numerLiniiWPlikuTekstowym==1)
+                tymczasowyPlikTekstowy <<daneJednegoAdresataOddzielonePionowymiKreskami;
+            else if(numerLiniiWPlikuTekstowym>1)
+                tymczasowyPlikTekstowy <<endl<<daneJednegoAdresataOddzielonePionowymiKreskami;
+
+         numerLiniiWPlikuTekstowym++;
+        }
+        if (czyIstniejeAdresat = false)
+        {
+            plikTekstowy.close();
+        }
+        plikTekstowy.close();
+        tymczasowyPlikTekstowy.close();
+
+        MetodyPomocnicze :: usunPlik(NAZWA_PLIKU_Z_ADRESATAMI);
+        MetodyPomocnicze :: zmienNazwePliku(nazwaTymczasowegoPlikuZAdresatami, NAZWA_PLIKU_Z_ADRESATAMI);
+    }
+}
 
 
 

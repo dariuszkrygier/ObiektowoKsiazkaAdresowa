@@ -17,7 +17,8 @@ int main()
     //ksiazkaAdresowa.dodajAdresata();
     //ksiazkaAdresowa.dodajAdresata();
     ksiazkaAdresowa.wyswietlWszystkichAdresatow();
-    ksiazkaAdresowa.usunAdresata();
+    //ksiazkaAdresowa.usunAdresata();
+    ksiazkaAdresowa.edytujAdresata();
     ksiazkaAdresowa.wyswietlWszystkichAdresatow();
     //ksiazkaAdresowa.wylogowanieUzytkownika();
 
