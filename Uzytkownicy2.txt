@@ -1,3 +1,0 @@
-
-1|michal|123|
-2|justyna|321|
