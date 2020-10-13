@@ -77,3 +77,13 @@ bool KsiazkaAdresowa :: czyUzytkownikJestZalogowany()
 {
     return uzytkownikMenedzer.czyUzytkownikJestZalogowany();
 }
+
+void KsiazkaAdresowa :: wyszukajAdresatowPoImieniu()
+{
+    adresatMenedzer -> wyszukajAdresatowPoImieniu();
+}
+
+void KsiazkaAdresowa :: wyszukajAdresatowPoNazwisku()
+{
+    adresatMenedzer -> wyszukajAdresatowPoNazwisku();
+}
