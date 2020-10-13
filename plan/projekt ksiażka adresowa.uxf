@@ -5,9 +5,9 @@
     <id>UMLClass</id>
     <coordinates>
       <x>371</x>
-      <y>420</y>
-      <w>231</w>
-      <h>161</h>
+      <y>413</y>
+      <w>245</w>
+      <h>224</h>
     </coordinates>
     <panel_attributes>KsiazkaAdresowa
 --
@@ -24,6 +24,12 @@
 + pobierzIdZalogowanegoUzytkownika(): int
 + wczytajAdresatowZPliku(): void
 + wyswietlWszystkichAdresatow():void
++ usunAdresata():void
++ edytujAdresata() : void
++ czyUzytkownikJestZalogowany(): bool
++ wyszukajAdresatowPoImieniu() : void
++ wyszukajAdresatowPoNazwisku(): void
+
 
 </panel_attributes>
     <additional_attributes/>
@@ -32,7 +38,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>91</x>
-      <y>35</y>
+      <y>28</y>
       <w>189</w>
       <h>63</h>
     </coordinates>
@@ -47,7 +53,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>28</x>
-      <y>140</y>
+      <y>133</y>
       <w>364</w>
       <h>196</h>
     </coordinates>
@@ -77,7 +83,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>70</x>
-      <y>385</y>
+      <y>378</y>
       <w>175</w>
       <h>119</h>
     </coordinates>
@@ -100,7 +106,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>427</x>
-      <y>21</y>
+      <y>14</y>
       <w>168</w>
       <h>70</h>
     </coordinates>
@@ -116,7 +122,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>756</x>
-      <y>7</y>
+      <y>0</y>
       <w>126</w>
       <h>105</h>
     </coordinates>
@@ -136,7 +142,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>679</x>
-      <y>126</y>
+      <y>119</y>
       <w>280</w>
       <h>154</h>
     </coordinates>
@@ -149,14 +155,22 @@
 + dodajAdresata(): void
 + wyswietlWszystkichAdresatow(): void
 + wyswietlDaneAdresata(): void
-+ wczytajAdresatowZPliku(int idZalogowanegoUzytkownika) : void</panel_attributes>
++ wczytajAdresatowZPliku(int idZalogowanegoUzytkownika) : void
++ usunAdresata():int 
++ podajIdWybranegoAdresata():int
++ edytujAdresata():void
++ wybierzOpcjeZMenuEdycja():char
++ zaktualizujDaneWybranegoAdresata(Adresat adresat):void
++ wyszukajAdresatowPoImieniu(): void
++ wyswietlIloscWyszukanychAdresatow(int iloscAdresatow): void
++ wyszukajAdresatowPoNazwisku():void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>665</x>
-      <y>364</y>
+      <y>357</y>
       <w>252</w>
       <h>168</h>
     </coordinates>
@@ -176,6 +190,21 @@
 + pobierzIdOstatniegoAdresata():int
 
 </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>182</y>
+      <w>154</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>PlikTekstowy
+--
+- NAZWA_PLIKU : string 
+--
++ czyPlikJestPusty(fstream &amp;plikTekstowy) : bool </panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
