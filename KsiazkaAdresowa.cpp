@@ -72,3 +72,8 @@ void KsiazkaAdresowa :: edytujAdresata()
 {
     adresatMenedzer -> edytujAdresata();
 }
+
+bool KsiazkaAdresowa :: czyUzytkownikJestZalogowany()
+{
+    return uzytkownikMenedzer.czyUzytkownikJestZalogowany();
+}
