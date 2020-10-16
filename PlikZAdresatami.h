@@ -18,11 +18,7 @@ class PlikZAdresatami : public PlikTekstowy
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
 public:
   PlikZAdresatami (string nazwaPlikuZAdresatami);
-  /*: NAZWA_PLIKU_Z_ADRESATAMI (nazwaPlikuZAdresatami) {
-      idOstatniegoAdresata=0;
-  };*/
   bool dopiszAdresataDoPliku(Adresat adresat);
-  //bool czyPlikJestPusty(fstream &plikTekstowy);
   vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
   int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
   int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);

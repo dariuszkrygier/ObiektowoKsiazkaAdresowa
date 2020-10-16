@@ -18,12 +18,9 @@ void AdresatMenedzer :: dodajAdresata()
 Adresat AdresatMenedzer :: podajDaneNowegoAdresata()
 {
     Adresat adresat;
-    //plikZAdresatami.wczytajIdOstatniegoAdresata(adresat.wczytajId());
-    adresat.ustawId((plikZAdresatami.pobierzIdOstatniegoAdresata()+1));
-    //cout<<idOstatniegoAdresata;
-    //system("pause");
-    adresat.ustawIdUzytkownika (ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
+    adresat.ustawId((plikZAdresatami.pobierzIdOstatniegoAdresata()+1));
+    adresat.ustawIdUzytkownika (ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
     adresat.ustawImie (MetodyPomocnicze :: wczytajLinie());
