@@ -9,26 +9,26 @@
       <w>210</w>
       <h>192</h>
     </coordinates>
-    <panel_attributes>KsiazkaAdresowa
+    <panel_attributes>AddressBook
 --
-- UzytkownikMenedzer : uzytkownikMenedzer
-- AdresatMenedzer : *adresatMenedzer
+- UserManager : userManager
+- RecipentManager : *recipentManager
 --
-+ KsiazkaAdresowa():
-+ rejestracjaUzytkownika():void
-+ wypiszWszystkichUzytkownikow(): void
-+ logowanieUzytkownika(): void
-+ zmianaHaslaZalogowanegoUzytkownika():void
-+ wylogowanieUzytkownika():
-+ dodajAdresata(): void
-+ pobierzIdZalogowanegoUzytkownika(): Integer
-+ wczytajAdresatowZPliku(): void
-+ wyswietlWszystkichAdresatow():void
-+ usunAdresata():void
-+ edytujAdresata() : void
-+ czyUzytkownikJestZalogowany(): bool
-+ wyszukajAdresatowPoImieniu() : void
-+ wyszukajAdresatowPoNazwisku(): void
++ AddressBook():
++ registerUser():void
++ printAllUsers(): void
++ userLogin(): void
++ changeLoggedUserPassword():void
++ userLogout():
++ addRecipent(): void
++ loadLoggedUserId(): Integer
++ loadRecipentsFromFile(): void
++ printAllRecipents():void
++ deleteRecipent():void
++ editRecipent() : void
++ isUserLogged(): bool
++ searchRecipentsByName() : void
++ searchRecipentsBySurname(): void
 
 
 </panel_attributes>
@@ -42,11 +42,11 @@
       <w>162</w>
       <h>54</h>
     </coordinates>
-    <panel_attributes>Uzytkownik
+    <panel_attributes>User
 --
 - id: Integer
 - login: String
-- haslo: String</panel_attributes>
+- password: String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -57,21 +57,21 @@
       <w>222</w>
       <h>138</h>
     </coordinates>
-    <panel_attributes>UzytkownikMenedzer
+    <panel_attributes>UserManager
 --
-- idZalogowanegoUzytkownika: Integer
-- uzytkownicy: vector &lt;Uzytkownik&gt;
+- loggedUserId: Integer
+- users: vector &lt;User&gt;
 --
-+ rejestracjaUzytkownika (): void
-+ logowanieUzytkownika (): Integer
-+ wypiszWszystkichUzytkownikow(): void
-+ wczytajUzytkownikowZPliku(): void
-+ zmianaHaslaZalogowanegoUzytkownika(): void
-+ wylogowanieUzytkownika(): void
-- podajDaneNowegoUzytkownika(): Uzytkownik
-- pobierzIdNowegoUzytkownika(): Integer
-- czyIstniejeLogin(): Bool
-+ czyUzytkownikJestZalogowany():bool
++ registerUser (): void
++ userLogin (): Integer
++ printAllUsers(): void
++ loadUsersFromFile(): void
++ ChangeLoggedUserId(): void
++ userLogout(): void
+- specifyNewUserData(): User
+- getNewUserId(): Integer
+- loginExists(): Bool
++ isUserLogged():bool
 
 
 
@@ -87,16 +87,16 @@
       <w>396</w>
       <h>102</h>
     </coordinates>
-    <panel_attributes>PlikZUzytkownikami
+    <panel_attributes>UsersFile
 --
-- NAZWA_PLIKU_Z_UZYTKOWNIKAMI : const string
+- USERS_FIE_NAME : const string
 --
-+ PlikZUzytkownikami():
-+ dopiszUzytkownikaDoPliku(): void
-+ wczytajUzytkownikowZPliku(): vector&lt;Uzytkownik&gt;
-+ zapiszWszystkichUzytkownikowDoPliku(vector &lt;Uzytkownik&gt; &amp;uzytkownicy): void
-- zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(): String
-- pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami): Uzytkownik
++ UsersFile():
++ addUserToFile(): void
++ LoadUsersFromFile(): vector&lt;User&gt;
++ SaveAllUsersToFile(vector &lt;User&gt; &amp;users): void
+- changeUsersDataToLinesSeparatedWithVerticalLines(): String
+- getUserData(string SeparatedWithVerticalLinesDataOfOneUser): User
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -108,17 +108,17 @@
       <w>276</w>
       <h>102</h>
     </coordinates>
-    <panel_attributes>MetodyPomocnicze
+    <panel_attributes>SupportingTools
 --
 --
-+ konwerjsaIntNaString(): String
-+ wczytajLinie(): String
-+ zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst):String
-+ konwersjaStringNaInt(string liczba): Integer
-+ wczytajZnak():Char
-+ wczytajLiczbeCalkowita():Integer
-+ usunPlik(string nazwaPlikuZRozszerzeniem): void
-+ zmienNazwePliku(string staraNazwa, string nowaNazwa):void
++ convertIntToString(): String
++ loadLine(): String
++ changeFirstLetterToCapitalAndLeaveRestLowercase(string text):String
++ convertStringToInt(string liczba): Integer
++ loadSign():Char
++ loadInteger():Integer
++ deleteFile(string fileNameWithExtension): void
++ changeFileName(string oldName, string newName):void
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -130,15 +130,15 @@
       <w>108</w>
       <h>90</h>
     </coordinates>
-    <panel_attributes>Adresat
+    <panel_attributes>Recipent
 --
 - id: Integer
-- idUzytkownika: Integer
-- imie: String
-- nazwisko: String
-- nrTelefonu: String
+- userId: Integer
+- name: String
+- surname: String
+- phoneNumber: String
 - email: String
-- adres: String
+- address: String
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -150,25 +150,25 @@
       <w>264</w>
       <h>174</h>
     </coordinates>
-    <panel_attributes>AdresatMenedzer
+    <panel_attributes>RecipentManager
 --
-- ID_ZALOGOWANEGO_UZYTKOWNIKA:const Integer
-- adresaci:vector &lt;Adresat&gt; 
+- LOGGED_USER_ID:const Integer
+- recipents:vector &lt;Recipent&gt; 
 --
-+ AdresatMenedzer():
-+ podajDaneNowegoAdresata(): Adresat
-+ dodajAdresata(): void
-+ wyswietlWszystkichAdresatow(): void
-+ wyswietlDaneAdresata(): void
-+ wczytajAdresatowZPliku(int idZalogowanegoUzytkownika) : void
-+ usunAdresata():Integer 
-+ podajIdWybranegoAdresata():Integer
-+ edytujAdresata():void
-+ wybierzOpcjeZMenuEdycja():char
-+ zaktualizujDaneWybranegoAdresata(Adresat adresat):void
-+ wyszukajAdresatowPoImieniu(): void
-+ wyswietlIloscWyszukanychAdresatow(int iloscAdresatow): void
-+ wyszukajAdresatowPoNazwisku():void</panel_attributes>
++ RecipentManager():
++ specifyNewRecipentData(): Recipent
++ addRecipent(): void
++ printAllRecipents(): void
++ printRecipentData(): void
++ loadRecipentsFromFile(int loggedUserId) : void
++ deleteRecipent():Integer 
++ insertChosenRecipentId():Integer
++ editRecipent():void
++ chooseFromEditMenu():char
++ updateDataOfChosenRecipent(Recipent recipent):void
++ serchRecipentsByName(): void
++ printNumberOfFoundRecipents(int numberOfRecipents): void
++ serchRecipentsBySurname():void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -179,22 +179,21 @@
       <w>522</w>
       <h>150</h>
     </coordinates>
-    <panel_attributes>PlikZAdresatami
+    <panel_attributes>RecipentsFile
 --
-- NAZWA_PLIKU_Z_ADRESATAMI: const String
-- zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat):String
-- idOstatniegoAdresata : Integer
+- RECIPENTS_FILE_NAME: const String
+- changeRecipentsDataToLinesSeparatedWithVerticalLines(Recipent recipent):String
+- lastRecipentId : Integer
 --
-+ PlikZAdresatami():
-+ dopiszAdresataDoPliku(Adresat adresat): void
-+ czyPlikJestPusty(fstream &amp;plikTekstowy): bool
-+ wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika):vector &lt;Adresat&gt;
-+ pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami): Integer
-+ pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami):Integer
-+ pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami): Adresat
-+ pobierzLiczbe(string tekst, int pozycjaZnaku): string
-+ pobierzIdOstatniegoAdresata():Integer
-+ pobierzZPlikuIdOstatniegoAdresata():void
++ RecipentsFile():
++ AddRecipentToFile(Recipent recipent): void
++ loadRecipentOfLoggedUserFromFile(int loggedUserId):vector &lt;Recipent&gt;
++ getUserIdFromSeparatedWithVerticalLinesData(string SeparatedWithVerticalLinesDataOfOneRecipent): Integer
++ getRecipentIdFromSeparatedWithVerticalLinesData(string SeparatedWithVerticalLinesDataOfOneRecipent):Integer
++ getRecipentData(string recipentDataSeparatedWithVerticalLines): Recipent
++ getNumber(string text, int SignPosition): string
++ getIdOfLastRecipent():Integer
++ getIdOfLastRecipentFromFile():void
 
 </panel_attributes>
     <additional_attributes/>
@@ -207,11 +206,11 @@
       <w>192</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>PlikTekstowy
+    <panel_attributes>TextFile
 --
-- NAZWA_PLIKU : string 
+- FILE_NAME : String 
 --
-+ czyPlikJestPusty(fstream &amp;plikTekstowy) : bool </panel_attributes>
++ isFileEmpty(fstream &amp;textFile) : bool </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
